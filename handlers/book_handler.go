@@ -22,12 +22,28 @@ func CreateBook(c *fiber.Ctx) error {
 
 // GetBooks handles GET /books
 func GetBooks(c *fiber.Ctx) error {
-    books, err := services.GetBooks()
-    if err != nil {
-        return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": err.Error()})
+    page, err := strconv.Atoi(c.Query("page", "1"))
+    if err != nil || page < 1 {
+        page = 1
     }
+
+    limit, err := strconv.Atoi(c.Query("limit", "10"))
+    if err != nil || limit < 1 {
+        limit = 10
+    }
+
+    search := c.Query("search", "")
+
+    books, err := services.GetBooks(page, limit, search)
+    if err != nil {
+        return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+            "error": "Failed to fetch books",
+        })
+    }
+
     return c.JSON(books)
 }
+
 
 // GetBook handles GET /books/:id
 func GetBook(c *fiber.Ctx) error {

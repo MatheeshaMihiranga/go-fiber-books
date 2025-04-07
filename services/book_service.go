@@ -14,9 +14,18 @@ func CreateBook(book *models.Book) error {
 }
 
 // GetBooks retrieves all books
-func GetBooks() ([]models.Book, error) {
+func GetBooks(page int, limit int, search string) ([]models.Book, error) {
     var books []models.Book
-    result := database.DB.Find(&books)
+    offset := (page - 1) * limit
+
+    query := database.DB.Model(&models.Book{})
+
+    if search != "" {
+        likeQuery := "%" + search + "%"
+        query = query.Where("title LIKE ? OR author LIKE ?", likeQuery, likeQuery)
+    }
+
+    result := query.Limit(limit).Offset(offset).Find(&books)
     return books, result.Error
 }
 

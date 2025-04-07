@@ -1,86 +1,76 @@
-Here's a basic `README.md` file for your **Go Fiber Books CRUD API project**, with instructions on setting up, running, and testing the backend:
+Here's your updated and detailed `README.md` file including **pagination**, **search**, setup instructions, and test coverage.
 
 ---
 
 ```markdown
 # 📚 Go Fiber Books API
 
-A simple RESTful API built with [Go Fiber](https://gofiber.io/) and [GORM](https://gorm.io/) for managing a collection of books. Includes CRUD operations and test cases.
+A simple RESTful API built with [Go Fiber](https://gofiber.io/) and [GORM](https://gorm.io/) that allows you to manage a collection of books with full CRUD functionality, pagination, and search.
 
 ---
 
 ## 🚀 Features
 
-- Create, Read, Update, Delete books
-- SQLite database using GORM
-- RESTful API endpoints
-- Unit tests for all handlers
+- ✅ Create, Read, Update, Delete books
+- 🔍 Search by `title` or `author`
+- 📄 Paginated book listing
+- 💾 SQLite database integration
+- ✅ Unit tests for all CRUD operations
+- ⚙️ Modular folder structure with services and handlers
 
 ---
 
-## 🛠️ Tech Stack
+## 📁 Project Structure
 
-- Go
-- Fiber (web framework)
-- GORM (ORM)
-- SQLite (local DB)
-
----
-
-## 📦 Project Structure
 ```
-
 go-fiber-books/
 ├── database/
-│ └── db.go
+│   └── db.go               # DB connection (SQLite)
 ├── handlers/
-│ └── book_handler.go
-│ └── book_handler_test.go
+│   ├── book_handler.go     # Route handlers
+│   └── book_handler_test.go# Unit tests for handlers
 ├── models/
-│ └── book.go
+│   └── book.go             # Book model definition
 ├── services/
-│ └── book_service.go
-├── main.go
-└── go.mod / go.sum
-
-````
+│   └── book_service.go     # Business logic layer
+├── main.go                 # App entry point
+├── go.mod / go.sum         # Go modules
+└── README.md               # This file!
+```
 
 ---
 
-## ⚙️ Setup Instructions
+## 📦 Tech Stack
 
-### 1. Clone the Repository
+- **Go** - Programming language
+- **Fiber** - Web framework
+- **GORM** - ORM for SQLite
+- **SQLite** - Lightweight database
+
+---
+
+## 🔧 Setup Instructions
+
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/MatheeshaMihiranga/go-fiber-books.git
 cd go-fiber-books
-````
+```
 
-### 2. Initialize Go Modules
+### 2. Install dependencies
 
 ```bash
 go mod tidy
 ```
 
-### 3. Run the App
+### 3. Run the server
 
 ```bash
 go run main.go
 ```
 
-Server will run on: `http://localhost:3000`
-
----
-
-## 📚 API Endpoints
-
-| Method | Endpoint     | Description       |
-| ------ | ------------ | ----------------- |
-| POST   | `/books`     | Create a new book |
-| GET    | `/books`     | Get all books     |
-| GET    | `/books/:id` | Get a book by ID  |
-| PUT    | `/books/:id` | Update a book     |
-| DELETE | `/books/:id` | Delete a book     |
+Server starts at: `http://localhost:3000`
 
 ---
 
@@ -90,14 +80,89 @@ Server will run on: `http://localhost:3000`
 go test -v ./handlers -count=1
 ```
 
+- `-v` = Verbose
+- `-count=1` = Ensures tests aren't cached
+
 ---
 
-## 📝 Example Book Payload
+## 📚 API Endpoints
+
+### ➕ Create a Book
+
+```
+POST /books
+```
+
+**Request Body:**
 
 ```json
 {
-  "title": "The Go Programming Language",
-  "author": "Alan A. A. Donovan",
-  "year": 2015
+  "title": "Clean Code",
+  "author": "Robert C. Martin",
+  "year": 2008
 }
+```
+
+---
+
+### 📖 Get All Books (with Pagination + Search)
+
+```
+GET /books?page=1&limit=10&search=clean
+```
+
+| Query Param | Description                          |
+|-------------|--------------------------------------|
+| `page`      | Page number (default: 1)             |
+| `limit`     | Number of results per page (default: 10) |
+| `search`    | Filter books by title or author      |
+
+---
+
+### 🔍 Get a Single Book
+
+```
+GET /books/:id
+```
+
+---
+
+### ✏️ Update a Book
+
+```
+PUT /books/:id
+```
+
+**Request Body:**
+
+```json
+{
+  "title": "Updated Title",
+  "author": "Updated Author",
+  "year": 2023
+}
+```
+
+---
+
+### ❌ Delete a Book
+
+```
+DELETE /books/:id
+```
+
+---
+
+## 🔍 Example Usage
+
+### Search for "Golang" books, 5 per page:
+
+```
+GET /books?page=1&limit=5&search=golang
+```
+
+## 👨‍💻 Author
+
+Developed by [Matheesha Mihiranga]  
+For internship/academic project use.
 ```
