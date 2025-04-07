@@ -19,29 +19,6 @@ A simple RESTful API built with [Go Fiber](https://gofiber.io/) and [GORM](https
 - ⚙️ Modular folder structure with services and handlers
 
 ---
-
-## 📁 Project Structure
-
-```
-go-fiber-books/
-├── database/
-│   └── db.go                  # DB connection (SQLite)
-├── handlers/
-│   ├── book_handler.go        # Route handlers
-│   └── book_handler_test.go   # Unit tests for handlers
-├── models/
-│   └── book.go                # Book model definition
-├── services/
-│   └── book_service.go        # Business logic layer
-├── main.go                    # App entry point
-├── go.mod                     # Go module definitions
-├── go.sum
-└── README.md                  # Project documentation
-
-```
-
----
-
 ## 📦 Tech Stack
 
 - **Go** - Programming language
