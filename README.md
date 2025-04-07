@@ -25,17 +25,19 @@ A simple RESTful API built with [Go Fiber](https://gofiber.io/) and [GORM](https
 ```
 go-fiber-books/
 ├── database/
-│   └── db.go               # DB connection (SQLite)
+│   └── db.go                  # DB connection (SQLite)
 ├── handlers/
-│   ├── book_handler.go     # Route handlers
-│   └── book_handler_test.go# Unit tests for handlers
+│   ├── book_handler.go        # Route handlers
+│   └── book_handler_test.go   # Unit tests for handlers
 ├── models/
-│   └── book.go             # Book model definition
+│   └── book.go                # Book model definition
 ├── services/
-│   └── book_service.go     # Business logic layer
-├── main.go                 # App entry point
-├── go.mod / go.sum         # Go modules
-└── README.md               # This file!
+│   └── book_service.go        # Business logic layer
+├── main.go                    # App entry point
+├── go.mod                     # Go module definitions
+├── go.sum
+└── README.md                  # Project documentation
+
 ```
 
 ---
