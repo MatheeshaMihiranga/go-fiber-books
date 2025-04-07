@@ -3,8 +3,8 @@ package database
 import (
 	"log"
 
+	"github.com/MatheeshaMihiranga/go-fiber-books/models"
 	"github.com/glebarez/sqlite" // Pure Go SQLite driver that doesn't require cgo
-	"github.com/yourusername/go-fiber-books/models"
 	"gorm.io/gorm"
 )
 

@@ -8,9 +8,9 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/MatheeshaMihiranga/go-fiber-books/database"
+	"github.com/MatheeshaMihiranga/go-fiber-books/models"
 	"github.com/gofiber/fiber/v2"
-	"github.com/yourusername/go-fiber-books/database"
-	"github.com/yourusername/go-fiber-books/models"
 )
 
 func setupApp() *fiber.App {

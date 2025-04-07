@@ -3,9 +3,9 @@ package main
 import (
 	"log"
 
+	"github.com/MatheeshaMihiranga/go-fiber-books/database"
+	"github.com/MatheeshaMihiranga/go-fiber-books/handlers"
 	"github.com/gofiber/fiber/v2"
-	"github.com/yourusername/go-fiber-books/database"
-	"github.com/yourusername/go-fiber-books/handlers"
 )
 
 func main() {

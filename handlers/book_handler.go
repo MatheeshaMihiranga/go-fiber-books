@@ -3,9 +3,9 @@ package handlers
 import (
 	"strconv"
 
+	"github.com/MatheeshaMihiranga/go-fiber-books/models"
+	"github.com/MatheeshaMihiranga/go-fiber-books/services"
 	"github.com/gofiber/fiber/v2"
-	"github.com/yourusername/go-fiber-books/models"
-	"github.com/yourusername/go-fiber-books/services"
 )
 
 // CreateBook handles POST /books

@@ -3,8 +3,8 @@ package services
 import (
 	"errors"
 
-	"github.com/yourusername/go-fiber-books/database"
-	"github.com/yourusername/go-fiber-books/models"
+	"github.com/MatheeshaMihiranga/go-fiber-books/database"
+	"github.com/MatheeshaMihiranga/go-fiber-books/models"
 )
 
 // CreateBook adds a new book to the database

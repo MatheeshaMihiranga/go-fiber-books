@@ -1,4 +1,4 @@
-module github.com/yourusername/go-fiber-books
+module github.com/MatheeshaMihiranga/go-fiber-books
 
 go 1.24.2
 
